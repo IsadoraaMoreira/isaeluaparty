@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎀 Isa & Luana — 18 Anos</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #f9c6d0;
+    --pink-deep: #e8899a;
+    --pink-light: #fdf0f3;
+    --pink-mid: #f4b8c6;
+    --dark: #2d1f24;
+    --text: #4a3038;
+    --white: #fffafc;
+    --shadow: 0 8px 40px rgba(232,137,154,0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--pink-light);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── BACKGROUND DECORATIONS ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(circle at 10% 20%, rgba(249,198,208,0.5) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(244,184,198,0.4) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(255,250,252,0.8) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+
+  /* ── SCREENS ── */
+  .screen {
+    display: none;
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    animation: fadeIn 0.6s ease;
+  }
+  .screen.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes floatIn { from { opacity: 0; transform: translateY(30px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  @keyframes shimmer { 0%,100% { opacity: 0.6; } 50% { opacity: 1; } }
+
+  /* ── CARD ── */
+  .card {
+    background: rgba(255,250,252,0.92);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(249,198,208,0.6);
+    border-radius: 28px;
+    padding: 48px 40px;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: var(--shadow);
+    animation: floatIn 0.7s cubic-bezier(.22,1,.36,1);
+    text-align: center;
+  }
+
+  /* ── ROSE DECO ── */
+  .rose-icon { font-size: 2.4rem; margin-bottom: 8px; display: block; }
+
+  /* ── TYPOGRAPHY ── */
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.15;
+  }
+  h1 em { font-style: italic; color: var(--pink-deep); }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 0.85rem;
+    color: var(--pink-deep);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 28px;
+    display: block;
+  }
+  .tagline {
+    font-size: 0.9rem;
+    color: #9e7680;
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-group { display: flex; flex-direction: column; gap: 14px; }
+  .btn-row { display: flex; gap: 14px; }
+
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 16px 28px;
+    border-radius: 50px;
+    border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    width: 100%;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--pink-deep), #d4637a);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(232,137,154,0.4);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,137,154,0.5); }
+
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--pink-mid);
+    color: var(--pink-deep);
+  }
+  .btn-outline:hover { background: var(--pink-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    background: rgba(249,198,208,0.25);
+    color: var(--text);
+    font-size: 0.85rem;
+    padding: 12px 20px;
+  }
+  .btn-ghost:hover { background: rgba(249,198,208,0.45); }
+
+  .btn-choice {
+    flex: 1;
+    flex-direction: column;
+    gap: 6px;
+    padding: 24px 16px;
+    border-radius: 20px;
+    background: rgba(255,250,252,0.9);
+    border: 1.5px solid var(--pink-mid);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-choice:hover { border-color: var(--pink-deep); background: #fff0f4; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(232,137,154,0.2); }
+  .btn-choice .icon { font-size: 2rem; }
+  .btn-choice .label { font-weight: 600; font-size: 1rem; color: var(--dark); }
+  .btn-choice .desc { font-size: 0.78rem; color: #9e7680; }
+
+  /* ── INPUTS ── */
+  .input-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; text-align: left; }
+  .input-group label { font-size: 0.8rem; font-weight: 500; color: #9e7680; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid var(--pink-mid);
+    border-radius: 14px;
+    background: rgba(255,250,252,0.8);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--dark);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input:focus { border-color: var(--pink-deep); background: #fff; }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 12px; margin: 20px 0; }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--pink-mid); }
+  .divider span { font-size: 0.75rem; color: #c4929e; letter-spacing: 0.1em; }
+
+  /* ── ERROR / SUCCESS ── */
+  .msg {
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+  .msg.error { background: #ffeef1; border: 1px solid #f9b8c3; color: #c0455a; }
+  .msg.success { background: #edfff4; border: 1px solid #a0e0b8; color: #2d7a50; }
+  .msg.show { display: block; }
+
+  /* ── INVITE ART PLACEHOLDER ── */
+  .invite-art {
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 9/16;
+    border-radius: 20px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px;
+    border: 2px dashed var(--pink-mid);
+    background: rgba(255,250,252,0.6);
+    color: #c4929e;
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+  }
+  .invite-art img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; }
+  .invite-art .placeholder-icon { font-size: 3rem; opacity: 0.4; }
+
+  /* ── QR SCANNER ── */
+  #qr-video { width: 100%; border-radius: 16px; overflow: hidden; max-height: 260px; object-fit: cover; }
+  .qr-frame {
+    position: relative;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: #1a0d10;
+  }
+  .qr-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 3px solid var(--pink-deep);
+    border-radius: 16px;
+    pointer-events: none;
+  }
+
+  /* ── ADMIN ── */
+  .admin-header {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; margin-bottom: 24px;
+  }
+  .admin-header h2 { margin: 0; font-size: 1.2rem; }
+  .badge {
+    background: linear-gradient(135deg, var(--pink-deep), #d4637a);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .guest-list {
+    background: rgba(249,198,208,0.12);
+    border: 1px solid var(--pink-mid);
+    border-radius: 16px;
+    padding: 16px;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+  .guest-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 4px;
+    border-bottom: 1px solid rgba(244,184,198,0.3);
+    font-size: 0.88rem;
+  }
+  .guest-item:last-child { border: none; }
+  .guest-tag {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .guest-tag.amigos { background: #fce4ec; color: #c2185b; }
+  .guest-tag.familia { background: #e8f5e9; color: #2e7d32; }
+
+  .remove-btn {
+    background: none; border: none; cursor: pointer;
+    color: #c4929e; font-size: 1rem; padding: 2px 6px;
+    border-radius: 8px; transition: background 0.2s;
+  }
+  .remove-btn:hover { background: #ffeef1; color: #c0455a; }
+
+  .admin-tabs {
+    display: flex; gap: 8px; margin-bottom: 24px; width: 100%;
+  }
+  .tab-btn {
+    flex: 1; padding: 10px; border: 1.5px solid var(--pink-mid);
+    background: transparent; border-radius: 12px; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500;
+    color: var(--text); transition: all 0.2s;
+  }
+  .tab-btn.active { background: var(--pink-deep); color: #fff; border-color: var(--pink-deep); }
+
+  .tab-content { display: none; width: 100%; }
+  .tab-content.active { display: block; }
+
+  /* ── QR PAGE ── */
+  .qr-page-box {
+    background: linear-gradient(135deg, #fff0f4, #ffe8ee);
+    border: 1.5px solid var(--pink-mid);
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .qr-page-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+  .qr-page-box p { font-size: 0.85rem; color: #9e7680; margin-bottom: 24px; line-height: 1.5; }
+
+  .who-btn {
+    display: block; width: 100%;
+    padding: 14px 20px;
+    border-radius: 14px;
+    border: 1.5px solid var(--pink-mid);
+    background: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+    color: var(--dark);
+    text-align: left;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .who-btn:hover { border-color: var(--pink-deep); background: #fff0f4; }
+  .who-btn .who-icon { font-size: 1.4rem; }
+
+  /* ── WHATSAPP CHAT ── */
+  .chat-screen {
+    background: #f0e6ea;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+  .chat-header {
+    background: linear-gradient(135deg, var(--pink-deep), #d4637a);
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 12px;
+    color: #fff;
+  }
+  .chat-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .chat-name { font-weight: 600; font-size: 0.95rem; }
+  .chat-status { font-size: 0.75rem; opacity: 0.85; }
+
+  .chat-body {
+    flex: 1; padding: 20px 16px;
+    display: flex; flex-direction: column; gap: 12px;
+    overflow-y: auto;
+  }
+  .bubble {
+    max-width: 78%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    position: relative;
+    animation: floatIn 0.5s ease;
+  }
+  .bubble.received {
+    background: #fff;
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  .bubble.sent {
+    background: linear-gradient(135deg, #f9c6d0, #f0a8bc);
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+    color: var(--dark);
+  }
+  .bubble .time { font-size: 0.68rem; opacity: 0.6; margin-top: 4px; text-align: right; }
+  .bubble .emoji-big { font-size: 2rem; display: block; margin-bottom: 4px; }
+
+  /* ── BACK BTN ── */
+  .back-btn {
+    position: fixed; top: 20px; left: 20px; z-index: 100;
+    background: rgba(255,250,252,0.9);
+    border: 1px solid var(--pink-mid);
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: var(--text);
+    display: none;
+    align-items: center; gap: 6px;
+    transition: all 0.2s;
+    box-shadow: 0 2px 12px rgba(232,137,154,0.15);
+  }
+  .back-btn:hover { background: #fff; box-shadow: 0 4px 16px rgba(232,137,154,0.25); }
+  .back-btn.show { display: flex; }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--pink-mid); border-radius: 10px; }
+
+  /* ── FLOATING PETALS ── */
+  .petal {
+    position: fixed;
+    font-size: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    animation: petalFall linear infinite;
+    z-index: 0;
+  }
+  @keyframes petalFall {
+    0% { opacity: 0; transform: translateY(-20px) rotate(0deg); }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.3; }
+    100% { opacity: 0; transform: translateY(100vh) rotate(360deg); }
+  }
+
+  /* ── ADMIN CARD wide ── */
+  .admin-card { max-width: 520px; }
+
+  /* ── ADD GUEST FORM ── */
+  .add-guest-row {
+    display: flex; gap: 8px; margin-bottom: 12px;
+  }
+  .add-guest-row input { flex: 1; }
+  .add-guest-row select {
+    padding: 14px 12px;
+    border: 1.5px solid var(--pink-mid);
+    border-radius: 14px;
+    background: rgba(255,250,252,0.8);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: var(--dark);
+    outline: none;
+    cursor: pointer;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 480px) {
+    .card { padding: 36px 24px; }
+    .btn-row { flex-direction: column; }
+    .btn-choice { flex-direction: row; justify-content: flex-start; padding: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PETALS -->
+<div id="petals-container"></div>
+
+<!-- BACK BUTTON -->
+<button class="back-btn" id="back-btn" onclick="goBack()">← voltar</button>
+
+<!-- ════════════════════════════════════════
+     SCREEN 1 — HOME
+════════════════════════════════════════ -->
+<div class="screen active" id="screen-home">
+  <div class="card">
+    <span class="rose-icon">🌸</span>
+    <h1>Isa <em>&</em> Luana</h1>
+    <span class="subtitle">18 anos • double birthday</span>
+    <p class="tagline">Você foi convidado(a) para celebrar este momento especial.<br>Selecione abaixo como você chegou até nós 🎀</p>
+
+    <div class="btn-row">
+      <button class="btn-choice" onclick="goTo('screen-tipo', 'amigos')">
+        <span class="icon">🎉</span>
+        <span class="label">Amigos</span>
+        <span class="desc">Sábado à noite</span>
+      </button>
+      <button class="btn-choice" onclick="goTo('screen-tipo', 'familia')">
+        <span class="icon">🤍</span>
+        <span class="label">Família</span>
+        <span class="desc">Domingo</span>
+      </button>
+    </div>
+
+    <div class="divider"><span>acesso restrito</span></div>
+    <button class="btn btn-ghost" onclick="goTo('screen-adm-login')">🔐 Área Admin</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SCREEN 2 — VERIFICAÇÃO DE NOME
+════════════════════════════════════════ -->
+<div class="screen" id="screen-tipo">
+  <div class="card">
+    <span class="rose-icon" id="tipo-icon">🎉</span>
+    <h2 id="tipo-titulo">Lista de Amigos</h2>
+    <span class="subtitle" id="tipo-sub">Sábado · Noite</span>
+    <p class="tagline">Digite seu nome para verificarmos sua presença na lista 🌸</p>
+
+    <div class="input-group">
+      <label>Seu nome completo</label>
+      <input type="text" id="input-nome" placeholder="Ex: Maria Silva" oninput="clearMsg('msg-nome')">
+    </div>
+
+    <div class="msg error" id="msg-nome"></div>
+
+    <button class="btn btn-primary" onclick="verificarConvidado()">Verificar presença ✨</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SCREEN 3 — CONVITE ARTE
+════════════════════════════════════════ -->
+<div class="screen" id="screen-convite">
+  <div class="card" style="max-width:440px;">
+    <span class="rose-icon">🎀</span>
+    <h2 id="convite-titulo">Seu Convite</h2>
+    <span class="subtitle" id="convite-sub">Confirmado ✓</span>
+
+    <div class="invite-art" id="invite-art-box">
+      <span class="placeholder-icon">🖼️</span>
+      <p style="font-size:0.8rem;color:#c4929e;text-align:center;line-height:1.5;">Arte do convite será exibida aqui<br><small>(aguardando upload da imagem)</small></p>
+    </div>
+
+    <p class="tagline" id="convite-msg">Mal podemos esperar para celebrar com você! 🌸</p>
+
+    <!-- Scanner QR — apenas para amigos -->
+    <div id="convite-qr-section" style="display:none;">
+      <div class="divider"><span>escaneie o QR code da festa</span></div>
+      <p style="font-size:0.82rem;color:#9e7680;margin-bottom:14px;line-height:1.5;">Na entrada do evento, escaneie o QR Code para confirmar sua chegada 🎀</p>
+      <div class="qr-frame"><video id="qr-video" autoplay playsinline></video></div>
+      <div class="msg" id="qr-result"></div>
+      <button class="btn btn-ghost" id="qr-btn" onclick="toggleQR()">📷 Escanear QR Code</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SCREEN 4 — ADM LOGIN
+════════════════════════════════════════ -->
+<div class="screen" id="screen-adm-login">
+  <div class="card">
+    <span class="rose-icon">🔐</span>
+    <h2>Área das Aniversariantes</h2>
+    <span class="subtitle">Acesso Restrito</span>
+    <p class="tagline">Apenas Isa & Luana podem entrar aqui 💕</p>
+
+    <div class="input-group">
+      <label>Senha</label>
+      <input type="password" id="input-adm-senha" placeholder="••••••••••••" onkeydown="if(event.key==='Enter')verificarAdm()">
+    </div>
+
+    <div class="msg error" id="msg-adm"></div>
+    <button class="btn btn-primary" onclick="verificarAdm()">Entrar 🌸</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SCREEN 5 — ADM PAINEL
+════════════════════════════════════════ -->
+<div class="screen" id="screen-adm">
+  <div class="card admin-card">
+    <div class="admin-header">
+      <h2>🌸 Painel Admin</h2>
+      <span class="badge">Isa & Luana</span>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="tab-btn active" onclick="switchTab('tab-amigos')">🎉 Amigos</button>
+      <button class="tab-btn" onclick="switchTab('tab-familia')">🤍 Família</button>
+      <button class="tab-btn" onclick="switchTab('tab-qr')">📸 QR Page</button>
+    </div>
+
+    <!-- TAB AMIGOS -->
+    <div class="tab-content active" id="tab-amigos">
+      <p style="font-size:0.8rem;color:#9e7680;margin-bottom:12px;">Convidados que acessarão o convite de <strong>Sábado</strong>:</p>
+      <div class="guest-list" id="lista-amigos"></div>
+      <div class="add-guest-row">
+        <input type="text" id="novo-amigo" placeholder="Nome do convidado">
+        <button class="btn btn-primary" style="width:auto;padding:14px 18px;" onclick="adicionarConvidado('amigos')">+</button>
+      </div>
+    </div>
+
+    <!-- TAB FAMÍLIA -->
+    <div class="tab-content" id="tab-familia">
+      <p style="font-size:0.8rem;color:#9e7680;margin-bottom:12px;">Convidados que acessarão o convite de <strong>Domingo</strong>:</p>
+      <div class="guest-list" id="lista-familia"></div>
+      <div class="add-guest-row">
+        <input type="text" id="novo-familiar" placeholder="Nome do convidado">
+        <button class="btn btn-primary" style="width:auto;padding:14px 18px;" onclick="adicionarConvidado('familia')">+</button>
+      </div>
+    </div>
+
+    <!-- TAB QR PAGE -->
+    <div class="tab-content" id="tab-qr">
+      <div class="qr-page-box">
+        <h3>📸 QR Code da Festa</h3>
+        <p>Imprima ou exiba este QR Code na entrada da chácara.<br>Ao escanear, o convidado será levado para a página de chegada 🎀</p>
+
+        <div id="qr-code-display" style="display:flex;justify-content:center;margin:20px 0;">
+          <canvas id="qr-canvas" style="border-radius:16px;border:3px solid var(--pink-mid);box-shadow:0 4px 20px rgba(232,137,154,0.2);"></canvas>
+        </div>
+
+        <div style="background:rgba(249,198,208,0.15);border:1px solid var(--pink-mid);border-radius:12px;padding:12px;margin-bottom:16px;">
+        <p style="font-size:0.78rem;color:#9e7680;margin:0;line-height:1.6;">
+            🔗 Este QR aponta para: <code id="qr-url-label" style="color:var(--pink-deep);font-size:0.75rem;word-break:break-all;"></code>
+          </p>
+        </div>
+
+        <button class="btn btn-primary" onclick="downloadQR()">⬇️ Baixar QR Code</button>
+        <br><br>
+        <a href="chegada.html" target="_blank" class="btn btn-outline" style="font-size:0.82rem;padding:12px 20px;display:flex;align-items:center;justify-content:center;">👁 Visualizar página de chegada</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SCREEN 6 — QR PAGE (pública via link)
+════════════════════════════════════════ -->
+<div class="screen" id="screen-qrpage">
+  <div class="card">
+    <span class="rose-icon">🎊</span>
+    <h2>Você chegou!</h2>
+    <span class="subtitle">Obrigada por comparecer 💕</span>
+    <p class="tagline">Clique abaixo para nos avisar quem te convidou para essa festa incrível!</p>
+
+    <button class="who-btn" onclick="abrirWhoBtnFlow('luana')">
+      <span class="who-icon">💗</span>
+      <div><strong>Fui convidado(a) pela Luana</strong></div>
+    </button>
+    <button class="who-btn" onclick="abrirWhoBtnFlow('isadora')">
+      <span class="who-icon">🌸</span>
+      <div><strong>Fui convidado(a) pela Isadora</strong></div>
+    </button>
+    <button class="who-btn" onclick="abrirWhoBtnFlow('ambas')">
+      <span class="who-icon">💕</span>
+      <div><strong>Das duas!</strong></div>
+    </button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SCREEN 7 — SENHA QR
+════════════════════════════════════════ -->
+<div class="screen" id="screen-who-senha">
+  <div class="card">
+    <span class="rose-icon" id="who-icon-display">💗</span>
+    <h2 id="who-titulo-display">Confirmação</h2>
+    <span class="subtitle">Só mais um passo 🌸</span>
+    <p class="tagline" id="who-desc">Digite a senha para confirmar!</p>
+
+    <div class="input-group">
+      <label>Senha secreta</label>
+      <input type="password" id="input-who-senha" placeholder="••••••••" onkeydown="if(event.key==='Enter')verificarWhoPwd()">
+    </div>
+
+    <div class="msg error" id="msg-who"></div>
+    <button class="btn btn-primary" onclick="verificarWhoPwd()">Confirmar ✨</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SCREEN 8 — CHAT WHATSAPP
+════════════════════════════════════════ -->
+<div class="screen chat-screen" id="screen-chat" style="flex-direction:column;justify-content:flex-start;">
+  <div class="chat-header">
+    <div class="chat-avatar" id="chat-avatar">🌸</div>
+    <div>
+      <div class="chat-name" id="chat-name">Isa & Luana 🎀</div>
+      <div class="chat-status">online agora ✓</div>
+    </div>
+  </div>
+  <div class="chat-body" id="chat-body"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+// ════════════════════════
+// STATE
+// ════════════════════════
+let currentTipo = ''; // 'amigos' | 'familia'
+let currentWho = '';  // 'luana' | 'isadora' | 'ambas'
+let screenHistory = [];
+
+// Default guest lists
+let convidados = {
+  amigos: ['Ana Souza','Carlos Lima','Beatriz Ferreira','Convidado Teste'],
+  familia: ['Avó Maria','Tio Roberto','Prima Júlia','Familiar Teste']
+};
+
+// ════════════════════════
+// NAVIGATION
+// ════════════════════════
+function goTo(screenId, param) {
+  if (param !== undefined) {
+    if (screenId === 'screen-tipo') setupTipo(param);
+  }
+  const prev = document.querySelector('.screen.active');
+  if (prev) {
+    screenHistory.push(prev.id);
+    prev.classList.remove('active');
+  }
+  document.getElementById(screenId).classList.add('active');
+  updateBackBtn();
+  window.scrollTo(0,0);
+}
+
+function goBack() {
+  if (screenHistory.length === 0) return;
+  const prev = document.querySelector('.screen.active');
+  if (prev) prev.classList.remove('active');
+  const back = screenHistory.pop();
+  document.getElementById(back).classList.add('active');
+  updateBackBtn();
+}
+
+function updateBackBtn() {
+  const btn = document.getElementById('back-btn');
+  btn.classList.toggle('show', screenHistory.length > 0);
+}
+
+// ════════════════════════
+// TIPO SETUP
+// ════════════════════════
+function setupTipo(tipo) {
+  currentTipo = tipo;
+  const isAmigos = tipo === 'amigos';
+  document.getElementById('tipo-icon').textContent = isAmigos ? '🎉' : '🤍';
+  document.getElementById('tipo-titulo').textContent = isAmigos ? 'Lista de Amigos' : 'Lista de Família';
+  document.getElementById('tipo-sub').textContent = isAmigos ? 'Sábado · Noite' : 'Domingo · Almoço';
+  document.getElementById('input-nome').value = '';
+  clearMsg('msg-nome');
+}
+
+// ════════════════════════
+// VERIFICAR CONVIDADO
+// ════════════════════════
+function normalizeName(n) {
+  return n.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+}
+
+function verificarConvidado() {
+  const nome = document.getElementById('input-nome').value.trim();
+  if (!nome) { showMsg('msg-nome','Por favor, digite seu nome 🌸','error'); return; }
+
+  const lista = convidados[currentTipo].map(n => normalizeName(n));
+  if (lista.includes(normalizeName(nome))) {
+    setupConvite();
+    goTo('screen-convite');
+  } else {
+    showMsg('msg-nome','Hmm... seu nome não está na lista. Verifique com quem te convidou 💕','error');
+  }
+}
+
+function setupConvite() {
+  const isAmigos = currentTipo === 'amigos';
+  document.getElementById('convite-titulo').textContent = isAmigos ? 'Convite · Amigos 🎉' : 'Convite · Família 🤍';
+  document.getElementById('convite-sub').textContent = isAmigos ? 'Sábado · Você está na lista ✓' : 'Domingo · Você está na lista ✓';
+  document.getElementById('convite-msg').textContent = isAmigos
+    ? 'Você está confirmado(a) para a festa de sábado! Mal podemos esperar 🌸'
+    : 'Você está confirmado(a) para o almoço de domingo em família! Com muito amor 🤍';
+  document.getElementById('convite-qr-section').style.display = isAmigos ? 'block' : 'none';
+}
+
+// ════════════════════════
+// ADM
+// ════════════════════════
+function verificarAdm() {
+  const senha = document.getElementById('input-adm-senha').value;
+  if (senha === 'luaeisaparty') {
+    clearMsg('msg-adm');
+    renderGuestLists();
+    goTo('screen-adm');
+  } else {
+    showMsg('msg-adm','Senha incorreta 🔐','error');
+    document.getElementById('input-adm-senha').value = '';
+  }
+}
+
+function renderGuestLists() {
+  renderList('lista-amigos', 'amigos');
+  renderList('lista-familia', 'familia');
+}
+
+function renderList(containerId, tipo) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  if (convidados[tipo].length === 0) {
+    el.innerHTML = '<p style="font-size:0.82rem;color:#c4929e;text-align:center;padding:12px;">Nenhum convidado ainda.</p>';
+    return;
+  }
+  convidados[tipo].forEach((nome, i) => {
+    const div = document.createElement('div');
+    div.className = 'guest-item';
+    div.innerHTML = `
+      <span>${nome}</span>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="guest-tag ${tipo}">${tipo === 'amigos' ? 'Sábado' : 'Domingo'}</span>
+        <button class="remove-btn" onclick="removerConvidado('${tipo}',${i})">✕</button>
+      </div>`;
+    el.appendChild(div);
+  });
+}
+
+function adicionarConvidado(tipo) {
+  const inputId = tipo === 'amigos' ? 'novo-amigo' : 'novo-familiar';
+  const input = document.getElementById(inputId);
+  const nome = input.value.trim();
+  if (!nome) return;
+  convidados[tipo].push(nome);
+  input.value = '';
+  renderList(tipo === 'amigos' ? 'lista-amigos' : 'lista-familia', tipo);
+}
+
+function removerConvidado(tipo, idx) {
+  convidados[tipo].splice(idx, 1);
+  renderList(tipo === 'amigos' ? 'lista-amigos' : 'lista-familia', tipo);
+}
+
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-btn').forEach((b,i) => {
+    b.classList.toggle('active', ['tab-amigos','tab-familia','tab-qr'][i] === tabId);
+  });
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  if (tabId === 'tab-qr') renderAdminQR();
+}
+
+// ════════════════════════
+// QR CODE GENERATION (admin)
+// ════════════════════════
+let adminQRGenerated = false;
+
+function renderAdminQR() {
+  if (adminQRGenerated) return;
+  adminQRGenerated = true;
+
+  const base = window.location.href.replace(/\/[^\/]*$/, '/');
+  const url = base + 'chegada.html';
+  document.getElementById('qr-url-label').textContent = url;
+
+  // Use canvas-based QR drawing (pure JS, no lib dependency issues)
+  const canvas = document.getElementById('qr-canvas');
+  canvas.width = 220; canvas.height = 220;
+
+  // Try QRCode lib first, fallback to API image
+  try {
+    // qrcodejs renders into a div with an img/canvas
+    const tempDiv = document.createElement('div');
+    tempDiv.style.display = 'none';
+    document.body.appendChild(tempDiv);
+
+    new QRCode(tempDiv, {
+      text: url,
+      width: 210,
+      height: 210,
+      colorDark: '#2d1f24',
+      colorLight: '#fffafc',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+    setTimeout(() => {
+      const img = tempDiv.querySelector('img') || tempDiv.querySelector('canvas');
+      if (img) {
+        const ctx = canvas.getContext('2d');
+        if (img.tagName === 'CANVAS') {
+          ctx.drawImage(img, 5, 5, 210, 210);
+        } else {
+          const i = new Image();
+          i.onload = () => ctx.drawImage(i, 5, 5, 210, 210);
+          i.src = img.src;
+        }
+      }
+      document.body.removeChild(tempDiv);
+    }, 300);
+  } catch(e) {
+    // fallback: use Google Charts API QR
+    const img = new Image();
+    const encoded = encodeURIComponent(url);
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 5, 5, 210, 210);
+    };
+    img.src = `https://chart.googleapis.com/chart?cht=qr&chs=210x210&chl=${encoded}&chco=2d1f24`;
+  }
+}
+
+function downloadQR() {
+  const canvas = document.getElementById('qr-canvas');
+  const link = document.createElement('a');
+  link.download = 'qrcode-festa-isa-luana.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+// ════════════════════════
+// WHO / QR FLOW
+// ════════════════════════
+const whoConfig = {
+  luana: { icon:'💗', name:'Luana', pwd:'31072008', color:'#e8899a' },
+  isadora: { icon:'🌸', name:'Isadora', pwd:'28062008', color:'#c47a8a' },
+  ambas: { icon:'💕', name:'Isa & Luana', pwd:'283106072008', color:'#d4637a' }
+};
+
+function abrirWhoBtnFlow(who) {
+  currentWho = who;
+  const cfg = whoConfig[who];
+  document.getElementById('who-icon-display').textContent = cfg.icon;
+  document.getElementById('who-titulo-display').textContent = `Convidado(a) por ${cfg.name}`;
+  document.getElementById('who-desc').textContent = `Que alegria ter você aqui! Digite a senha secreta da ${cfg.name} para confirmar 🎀`;
+  document.getElementById('input-who-senha').value = '';
+  clearMsg('msg-who');
+  goTo('screen-who-senha');
+}
+
+function verificarWhoPwd() {
+  const pwd = document.getElementById('input-who-senha').value;
+  const cfg = whoConfig[currentWho];
+  if (pwd === cfg.pwd) {
+    enviarEmailConfirmacao(cfg.name);
+    abrirChatWhatsapp(currentWho);
+  } else {
+    showMsg('msg-who','Senha incorreta, tente de novo 💕','error');
+    document.getElementById('input-who-senha').value = '';
+  }
+}
+
+function enviarEmailConfirmacao(nome) {
+  // EmailJS integration placeholder
+  // Para ativar: configure EmailJS com seus IDs
+  const subject = `🎉 Confirmação de presença — convidado(a) por ${nome}`;
+  const body = `Um convidado confirmou presença na festa de Isa & Luana!\n\nConvidado(a) por: ${nome}\nHorário: ${new Date().toLocaleString('pt-BR')}`;
+  const emails = ['seuemail@gmail.com','isadora@gmail.com']; // 🔧 SUBSTITUA pelos e-mails reais
+  console.log('📧 Email de confirmação:', { to: emails, subject, body });
+  // mailto fallback (abre cliente de e-mail)
+  // window.open(`mailto:${emails.join(',')}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+}
+
+// ════════════════════════
+// CHAT WHATSAPP
+// ════════════════════════
+const chatMessages = {
+  luana: [
+    { from:'received', text:'Oi amor!! 🥹💗', delay:300 },
+    { from:'received', text:'<span class="emoji-big">🎉</span>O portão está aberto, só entrar!!', delay:900 },
+    { from:'sent', text:'Chegando já!!', delay:1600 },
+    { from:'received', text:'Corre que a festa tá começando 💃🎀', delay:2200 },
+    { from:'received', text:'Te esperando aqui!! ✨🌸', delay:2900 },
+  ],
+  isadora: [
+    { from:'received', text:'Eiii!! Que bom que você veio 🌸🥰', delay:300 },
+    { from:'received', text:'<span class="emoji-big">🚪✨</span>O portão tá aberto!! Pode entrar!', delay:900 },
+    { from:'sent', text:'Já estou chegando!!', delay:1600 },
+    { from:'received', text:'Yaaay! Que alegria 💕🎊', delay:2200 },
+    { from:'received', text:'A festa já tá arrasando igual você 😍🎀', delay:2900 },
+  ],
+  ambas: [
+    { from:'received', text:'CHEGOUUU!! 🎉🎉', delay:300 },
+    { from:'received', text:'<span class="emoji-big">💕🎊</span>Porta aberta pra você!', delay:900 },
+    { from:'sent', text:'Cheguei!! Que festa incrível!!', delay:1600 },
+    { from:'received', text:'A Isa e a Luana estão esperando você!! 🌸💗', delay:2200 },
+    { from:'received', text:'Bora celebrar juntos!! ✨🎂', delay:2900 },
+  ]
+};
+
+function abrirChatWhatsapp(who) {
+  const cfg = whoConfig[who];
+  document.getElementById('chat-avatar').textContent = cfg.icon;
+  document.getElementById('chat-name').textContent =
+    who === 'ambas' ? 'Isa & Luana 🎀' : `${cfg.name} 🎀`;
+
+  const body = document.getElementById('chat-body');
+  body.innerHTML = '';
+
+  chatMessages[who].forEach(msg => {
+    setTimeout(() => {
+      const bubble = document.createElement('div');
+      bubble.className = `bubble ${msg.from}`;
+      const now = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+      bubble.innerHTML = `${msg.text}<div class="time">${now} ${msg.from === 'sent' ? '✓✓' : ''}</div>`;
+      body.appendChild(bubble);
+      body.scrollTop = body.scrollHeight;
+    }, msg.delay);
+  });
+
+  goTo('screen-chat');
+}
+
+// ════════════════════════
+// QR SCANNER
+// ════════════════════════
+let qrActive = false;
+let qrStream = null;
+
+async function toggleQR() {
+  if (qrActive) {
+    stopQR();
+  } else {
+    await startQR();
+  }
+}
+
+async function startQR() {
+  try {
+    qrStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+    const video = document.getElementById('qr-video');
+    video.srcObject = qrStream;
+    qrActive = true;
+    document.getElementById('qr-btn').textContent = '⏹ Parar câmera';
+
+    if ('BarcodeDetector' in window) {
+      const detector = new BarcodeDetector({ formats: ['qr_code'] });
+      const scan = async () => {
+        if (!qrActive) return;
+        try {
+          const barcodes = await detector.detect(video);
+          if (barcodes.length > 0) {
+            const raw = barcodes[0].rawValue;
+            stopQR();
+            const msgEl = document.getElementById('qr-result');
+            msgEl.className = 'msg success show';
+            msgEl.textContent = `✓ QR Code lido! Abrindo página...`;
+            setTimeout(() => {
+              window.open(raw.includes('http') ? raw : 'chegada.html', '_blank');
+            }, 800);
+            return;
+          }
+        } catch(e){}
+        requestAnimationFrame(scan);
+      };
+      scan();
+    } else {
+      const r = document.getElementById('qr-result');
+      r.className = 'msg error show';
+      r.textContent = 'Seu navegador não suporta leitura de QR nativa. Tente no Chrome.';
+    }
+  } catch(e) {
+    const r = document.getElementById('qr-result');
+    r.className = 'msg error show';
+    r.textContent = 'Não foi possível acessar a câmera. Verifique as permissões.';
+  }
+}
+
+function stopQR() {
+  if (qrStream) { qrStream.getTracks().forEach(t => t.stop()); qrStream = null; }
+  qrActive = false;
+  document.getElementById('qr-btn').textContent = '📷 Escanear QR Code';
+}
+
+// ════════════════════════
+// UTILS
+// ════════════════════════
+function showMsg(id, text, type) {
+  const el = document.getElementById(id);
+  el.textContent = text;
+  el.className = `msg ${type} show`;
+}
+function clearMsg(id) {
+  const el = document.getElementById(id);
+  el.className = 'msg';
+}
+
+// ════════════════════════
+// DEEP LINK — #qrpage
+// ════════════════════════
+if (window.location.hash === '#qrpage') {
+  document.querySelector('.screen.active').classList.remove('active');
+  document.getElementById('screen-qrpage').classList.add('active');
+}
+
+// ════════════════════════
+// FLOATING PETALS
+// ════════════════════════
+const petals = ['🌸','🌺','✨','💗','🎀','💕','🌷'];
+function createPetal() {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.textContent = petals[Math.floor(Math.random()*petals.length)];
+  p.style.left = Math.random()*100+'vw';
+  p.style.fontSize = (0.7 + Math.random()*0.8)+'rem';
+  p.style.animationDuration = (6 + Math.random()*8)+'s';
+  p.style.animationDelay = (Math.random()*4)+'s';
+  document.getElementById('petals-container').appendChild(p);
+  setTimeout(() => p.remove(), 14000);
+}
+setInterval(createPetal, 2200);
+createPetal(); createPetal(); createPetal();
+</script>
+</body>
+</html>
